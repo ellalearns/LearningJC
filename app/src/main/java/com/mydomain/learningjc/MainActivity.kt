@@ -132,11 +132,14 @@ fun MainScreenComp(
                     contentDescription = null,
                     modifier = Modifier
                         .background(
-                            color = Color.LightGray,
+                            color = if (info.heart[currIsland]) Color.Yellow else Color.LightGray,
                             shape = RoundedCornerShape(10.dp)
                         )
                         .size(50.dp)
                         .padding(10.dp)
+                        .clickable {
+                            info.heart[currIsland] = !info.heart[currIsland]
+                        }
                 )
                 Spacer(modifier = Modifier.height(20.dp))
                 Icon(
